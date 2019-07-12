@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using System.Collections.Generic;
+
 
 public class DigitalCipher : MonoBehaviour {
 
@@ -157,8 +159,8 @@ public class DigitalCipher : MonoBehaviour {
         foreach(string current in digitstring){
             if(indexes.IndexOf(current)>-1){
                 yield return null;
-                yield return GridPoints[indexes.IndexOf(current)];
-                yield return GridPoints[indexes.IndexOf(current)];
+                yield return Buttons[indexes.IndexOf(current)];
+                yield return Buttons[indexes.IndexOf(current)];
             }
             else{
                 yield return null;
