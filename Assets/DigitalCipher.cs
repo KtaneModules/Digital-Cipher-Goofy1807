@@ -1,9 +1,7 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
-using System.Collections.Generic;
-
 
 public class DigitalCipher : MonoBehaviour {
 
@@ -34,7 +32,7 @@ public class DigitalCipher : MonoBehaviour {
         {
             Buttons[i].OnInteract += ButtonPressed(i);
         }
-    }   
+    }
 
     private KMSelectable.OnInteractHandler ButtonPressed(int buttonPressed)
     {
@@ -116,58 +114,4 @@ public class DigitalCipher : MonoBehaviour {
         Debug.LogFormat(@"[Digital Cipher #{0}] Input String: {1} Expected String: {2}", moduleId, inputText, outputTextCalculated);
 
     }
-    public int alpos(char letter){
-        int index = char.ToUpper(letter) - 64;
-        index = index-1;
-        return index;
-    }
-    public string TwitchHelpMessage = "Use '!{0} press A B C D' to press button A, B, C, D! Use only capitalsDon't use capitals!";
-    IEnumerator ProcessTwitchCommand(string command)
-	{
-        var indexes = new List<string>();
-        indexes.Add("A");
-        indexes.Add("B");
-        indexes.Add("C");
-        indexes.Add("D");
-        indexes.Add("E");
-        indexes.Add("F");
-        indexes.Add("G");
-        indexes.Add("H");
-        indexes.Add("I");
-        indexes.Add("J");
-        indexes.Add("K");
-        indexes.Add("L");
-        indexes.Add("M");
-        indexes.Add("N");
-        indexes.Add("O");
-        indexes.Add("P");
-        indexes.Add("Q");
-        indexes.Add("R");
-        indexes.Add("S");
-        indexes.Add("T");
-        indexes.Add("U");
-        indexes.Add("V");
-        indexes.Add("W");
-        indexes.Add("X");
-        indexes.Add("Y");
-        indexes.Add("Z");
-        
-        string commfinal=command.Replace("press ", "");
-		string[] digitstring = commfinal.Split(' ');
-		int tried;
-		int index =1;
-        foreach(string current in digitstring){
-            if(indexes.IndexOf(current)>-1){
-                yield return null;
-                yield return Buttons[indexes.IndexOf(current)];
-                yield return Buttons[indexes.IndexOf(current)];
-            }
-            else{
-                yield return null;
-				yield return "sendtochaterror Letter not valid.";
-				yield break;
-            }
-        }
-    }
-
 }
