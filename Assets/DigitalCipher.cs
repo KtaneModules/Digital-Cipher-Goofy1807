@@ -233,6 +233,11 @@ public class DigitalCipher : MonoBehaviour {
             }
             yield break;
         }
+        else
+        {
+            yield return "sendtochaterror Invalid Command";
+            yield break;
+        }
     }
 
     IEnumerator TwitchHandleForcedSolve()
